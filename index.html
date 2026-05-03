@@ -206,22 +206,28 @@
   .ai-card {
     grid-column: 1 / -1;
     background: var(--black); border-radius: 8px; padding: 18px 22px;
-    display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: start;
   }
-  .ai-left { display: flex; flex-direction: column; align-items: center; gap: 6px; }
-  .ai-icon-big { font-size: 28px; line-height: 1; }
+  .ai-header { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+  .ai-icon-big { font-size: 24px; line-height: 1; }
   .ai-badge {
     font-size: 8px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
     border: 1px solid #555; color: #aaa; padding: 2px 8px; border-radius: 2px;
-    white-space: nowrap;
   }
-  .ai-title { font-size: 12px; font-weight: 700; color: #f0f0ee; margin-bottom: 8px; letter-spacing: 0.5px; }
-  .ai-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 5px 16px; }
-  .ai-list li {
-    font-size: 10.5px; color: #aaa; padding-left: 12px; position: relative; line-height: 1.4;
+  .ai-main-title { font-size: 12px; font-weight: 700; color: #f0f0ee; letter-spacing: 0.5px; }
+  .ai-items { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .ai-item {
+    background: #1e1e1e; border-radius: 6px; padding: 11px 13px;
+    border: 1px solid #333; position: relative;
   }
-  .ai-list li::before { content: '→'; position: absolute; left: 0; color: #666; font-weight: 700; }
-  .ai-list li strong { color: #e0e0de; font-weight: 600; }
+  .ai-item-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; gap: 8px; }
+  .ai-item-title { font-size: 11px; font-weight: 700; color: #e0e0de; line-height: 1.3; margin-bottom: 6px; }
+  .ai-item-desc { font-size: 10px; color: #888; line-height: 1.5; }
+  .ai-timestamp { font-size: 8.5px; color: #555; white-space: nowrap; text-align: right; line-height: 1.5; flex-shrink: 0; }
+  .ai-timestamp span { display: block; }
+  .ai-item-pts { list-style: none; }
+  .ai-item-pts li { font-size: 10px; color: #888; padding-left: 10px; position: relative; line-height: 1.45; margin-bottom: 2px; }
+  .ai-item-pts li::before { content: '·'; position: absolute; left: 0; color: #555; font-weight: 700; font-size: 14px; line-height: 1; top: 1px; }
+  .ai-ps { font-size: 9.5px; color: #555; font-style: italic; margin-top: 5px; padding-top: 5px; border-top: 1px solid #2a2a2a; line-height: 1.4; }
 
   /* Tags */
   .tags { display: flex; flex-wrap: wrap; gap: 6px; }
@@ -244,6 +250,30 @@
   }
   .footer-l { font-size: 10px; color: var(--soft); }
   .footer-r { font-size: 9px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--black); }
+
+  /* ── MOBILE RESPONSIVE ── */
+  @media (max-width: 820px) {
+    body { padding: 0; background: var(--bg-page); }
+    .page { width: 100%; box-shadow: none; }
+    .header { padding: 24px 20px 20px; grid-template-columns: 1fr auto; gap: 12px; }
+    .name { font-size: 32px; }
+    .meta { font-size: 10px; gap: 10px; }
+    .fynd-logo { font-size: 16px; }
+    .year-badge { font-size: 8px; padding: 3px 8px; }
+    .impact-band { padding: 18px 20px; }
+    .impact-text { font-size: 13px; }
+    .body { padding: 20px; grid-template-columns: 1fr; gap: 20px; }
+    .full-width { grid-column: 1 / -1; }
+    .layer-grid { grid-template-columns: 1fr; gap: 8px; }
+    .layer-arrow { transform: rotate(90deg); height: 20px; }
+    .also-row { flex-direction: column; align-items: flex-start; gap: 6px; }
+    .ai-items { grid-template-columns: 1fr; }
+    .ai-item[style*="grid-column"] { grid-column: 1 / -1; }
+    .ai-item-pts[style*="columns"] { columns: 1; }
+    .footer { padding: 12px 20px; flex-direction: column; gap: 4px; text-align: center; }
+    .quote-band { padding: 12px 14px; }
+    .str-list li { grid-template-columns: 20px 1fr; }
+  }
 </style>
 </head>
 <body>
@@ -254,7 +284,7 @@
   <div class="header">
     <div>
       <div class="name">Mithali Kamble</div>
-      <div class="title">Program Manager — Store OS</div>
+      <div class="title">Program Manager, Store OS</div>
       <div class="meta">
         <span>📍 Mumbai · Fynd</span>
         <span>🏢 Store OS &amp; Retail Tech</span>
@@ -271,7 +301,7 @@
   <div class="impact-band">
     <div class="impact-line"></div>
     <div class="impact-text">
-      I independently solution, scope, and deliver — the <em>connective layer between Product thinking, Engineering execution, CSM operations, and store-level reality</em>. I don't wait for direction. I identify the gap, own the problem, and make things ship — end to end, every time.
+      I independently solution, scope, and deliver as the <em>connective layer between Product thinking, Engineering execution, CSM operations, and store-level reality</em>. I don't wait for direction. I identify the gap, own the problem, and make things ship end to end, every time.
     </div>
   </div>
 
@@ -287,7 +317,7 @@
           <div class="s-icon">💡</div>
           <div>
             <div class="s-title">Independent Solutioning</div>
-            <div class="s-desc">Identify gaps, define solutions, and write specs without waiting on product — translating store/brand pain into actionable technical scope.</div>
+            <div class="s-desc">Identify gaps, define solutions, and write specs without waiting on product, translating store and brand pain into actionable technical scope.</div>
             <span class="s-eg">↳ Item Level Sales Tagging: scoped end-to-end independently</span>
           </div>
         </li>
@@ -296,14 +326,14 @@
           <div>
             <div class="s-title">Developer Management &amp; Delivery</div>
             <div class="s-desc">Write clear requirement docs, run sprint check-ins, unblock developers, and hold delivery timelines. I speak both business and technical.</div>
-            <span class="s-eg">↳ PineLabs: 2 dev teams (internal + external vendor)</span>
+            <span class="s-eg">↳ PineLabs: coordinated internal + external teams</span>
           </div>
         </li>
         <li>
           <div class="s-icon">📋</div>
           <div>
             <div class="s-title">CR &amp; Release Management</div>
-            <div class="s-desc">Structure every change request with impact analysis, rollout plan, comms, and stakeholder sign-off — no surprise deployments, full audit trail.</div>
+            <div class="s-desc">Structure every change request with impact analysis, rollout plan, comms, and stakeholder sign-off. No surprise deployments, full audit trail.</div>
           </div>
         </li>
         <li>
@@ -317,7 +347,7 @@
           <div class="s-icon">🏪</div>
           <div>
             <div class="s-title">Direct Store Problem Solver</div>
-            <div class="s-desc">Attend brand queries and store escalations directly — no routing, no delay. Own the issue from first contact through resolution, coordinating across store teams in real time.</div>
+            <div class="s-desc">Attend brand queries and store escalations directly. No routing, no delay. Own the issue from first contact through resolution, coordinating across store teams in real time.</div>
             <span class="s-eg">↳ Pant Project: directly handled brand queries &amp; store team escalations end-to-end</span>
           </div>
         </li>
@@ -330,19 +360,19 @@
 
       <div class="ach-card">
         <div class="ach-title">🏷️ Item Level Sales Employee Tagging</div>
-        <div class="ach-desc">Independently solutioned &amp; delivered item-level attribution of sales to store employees — enabling commission tracking and performance management for brands like <strong>Knya Med</strong>. Drove spec, dev, UAT, and rollout.</div>
+        <div class="ach-desc">Independently solutioned &amp; delivered item-level attribution of sales to store employees, enabling commission tracking and performance management for brands like <strong>Knya Med</strong>. Drove spec, dev, UAT, and rollout.</div>
         <span class="ach-tag">Solutioning → Live</span>
       </div>
 
       <div class="ach-card">
         <div class="ach-title">🤝 PineLabs App-to-App Integration</div>
-        <div class="ach-desc">Led Fynd POS ↔ PineLabs terminal integration — the key challenge was coordinating two engineering teams across organisational boundaries (internal Fynd devs + external PineLabs team), aligning on API contracts, managing timelines across both sides, and running store-level pilots before full rollout.</div>
+        <div class="ach-desc">Led Fynd POS ↔ PineLabs terminal integration. The key challenge was coordinating two engineering teams across organisational boundaries (internal Fynd devs + external PineLabs team), aligning on API contracts, managing timelines across both sides, and running store-level pilots before full rollout.</div>
         <span class="ach-tag">Cross-org Delivery</span>
       </div>
 
       <div class="ach-card">
         <div class="ach-title">💰 Advance Cash Management</div>
-        <div class="ach-desc">Delivered cash advance &amp; reconciliation module — eliminating manual tracking errors and enabling real-time cash accountability across stores for brands like <strong>Pant Project</strong>.</div>
+        <div class="ach-desc">Delivered cash advance &amp; reconciliation module, eliminating manual tracking errors and enabling real-time cash accountability across stores for brands like <strong>Pant Project</strong>.</div>
         <span class="ach-tag">Finance + Ops</span>
       </div>
 
@@ -361,7 +391,7 @@
         <div class="layer-card">
           <div class="l-icon">📦</div>
           <div class="l-role">Product</div>
-          <div class="l-desc">I don't wait for product specs — I independently solution gaps, write briefs, and feed roadmap inputs based on brand &amp; store reality.</div>
+          <div class="l-desc">I don't wait for product specs. I independently solution gaps, write briefs, and feed roadmap inputs based on brand &amp; store reality.</div>
         </div>
         <div class="layer-arrow">⟷</div>
         <div class="layer-card me">
@@ -391,26 +421,46 @@
     <div class="quote-band">
       <div class="q-line"></div>
       <div class="q-text">
-        During the <strong>Footlocker</strong> release, queries and doubts started coming in — products were getting disabled from the platform mid-flow. I didn't wait for the respective team to come and investigate. I jumped in, diagnosed the issue through Store OS configuration and setup, got on a call with the brand, the dev team, and the product team simultaneously — and resolved it then and there. <strong>This is the work I show up to do every day.</strong>
+        During the <strong>Footlocker Global</strong> release, queries and doubts started coming in. Products were getting disabled from the platform mid-flow. I didn't wait for the respective team to come and investigate. I jumped in, diagnosed the issue, and enabled the products directly from the commerce platform. Other queries were resolved through Store OS configuration and setup. I got on a call with the team and resolved everything then and there. <strong>This is the work I show up to do every day.</strong>
       </div>
     </div>
 
     <!-- AI / AUTOMATION -->
     <div class="ai-card">
-      <div class="ai-left">
+      <div class="ai-header">
         <div class="ai-icon-big">⚡</div>
-        <div class="ai-badge">AI · Claude</div>
+        <div>
+          <div class="ai-badge">AI · Claude · Cowork</div>
+          <div class="ai-main-title">Using AI to Work Smarter — My Automation Stack</div>
+        </div>
       </div>
-      <div>
-        <div class="ai-title">Using AI to Work Smarter — My Daily Automation Stack</div>
-        <ul class="ai-list">
-          <li><strong>CR Drafts:</strong> Use Claude to generate structured CR documents from raw notes — cutting draft time from 45 min to under 10 min</li>
-          <li><strong>Requirement Docs:</strong> Prompt Claude with store/brand problem statements to generate first-cut BRDs and edge case lists</li>
-          <li><strong>Sprint Summaries:</strong> Auto-summarise dev standup notes into stakeholder-ready status updates using Claude</li>
-          <li><strong>Query Triage:</strong> Use Claude to draft CSM-facing FAQs and resolution playbooks from past escalation threads</li>
-          <li><strong>UAT Checklists:</strong> Generate feature-specific test cases by feeding Claude the spec doc — reducing UAT prep time significantly</li>
-          <li><strong>Meeting Prep:</strong> Summarise brand onboarding histories and open items before calls using Claude for fast context loading</li>
-        </ul>
+      <div class="ai-items">
+
+        <div class="ai-item">
+          <div class="ai-item-title">#1 Daily Huddle → Slack Update Agent</div>
+          <div class="ai-item-desc">Automatically converts meeting transcripts from Granola into formatted Slack standup updates. Eliminates the daily manual effort of writing and posting status messages after every huddle.</div>
+        </div>
+
+        <div class="ai-item">
+          <div class="ai-item-title">#2 Jira Ticket Creation Using Claude Skill</div>
+          <div class="ai-item-desc">Reads a Slack thread and creates a properly structured Jira ticket in the team's standard format, then posts it back to the thread. Cuts ticket creation time significantly and ensures nothing falls through the cracks.</div>
+        </div>
+
+        <div class="ai-item">
+          <div class="ai-item-title">#3 Auto Follow-up on Threads Using Claude Cowork</div>
+          <div class="ai-item-desc">Monitors Slack tasks, maintains a live pending and completed canvas, and sends context-aware follow-ups based on thread history. Keeps every open item moving without manual tracking.</div>
+        </div>
+
+        <div class="ai-item">
+          <div class="ai-item-title">#4 CR Automation Using Claude Skill</div>
+          <div class="ai-item-desc">Generates a complete Change Request with all required fields, creates the STOS ticket if missing, notifies PSE and SRE in the CR channel, and sets up the walkthrough meet invite. A full CR workflow in one prompt.</div>
+        </div>
+
+        <div class="ai-item" style="grid-column: 1 / -1;">
+          <div class="ai-item-title">#5 Auto Daily Status Update on Core-PM Using Claude Cowork</div>
+          <div class="ai-item-desc">Reads Granola, Calendar, Emails, and Slack to build a full day summary, then finds the standup workflow on Core-PM, fills in every question, and submits it automatically. Saves consistent daily effort and ensures updates are never skipped.</div>
+        </div>
+
       </div>
     </div>
 
@@ -445,7 +495,7 @@
     <div class="full-width">
       <div class="sec-label">Where I'm Headed</div>
       <p class="vision-text">
-        I want to build a <strong>best-in-class program delivery culture at Fynd</strong> — where every feature ships on time, every brand goes live without chaos, and every developer I work with knows exactly what to build and why. I've already shown I can solution independently, manage complex deliveries, own escalations, and use AI to multiply my output. My goal now is to <strong>scale that impact further</strong> — taking on larger programs, deeper cross-functional ownership, and building the systems that make delivery predictable across Store OS.
+        I want to build a <strong>best-in-class program delivery culture at Fynd</strong> where every feature ships on time, every brand goes live without chaos, and every developer I work with knows exactly what to build and why. I've already shown I can solution independently, manage complex deliveries, own escalations, and use AI to multiply my output. My goal now is to <strong>scale that impact further</strong>, taking on larger programs, deeper cross-functional ownership, and building the systems that make delivery predictable across Fynd.
       </p>
     </div>
 
@@ -453,7 +503,7 @@
 
   <!-- FOOTER -->
   <div class="footer">
-    <div class="footer-l">Mithali Kamble · Program Manager, Store OS · Submitted May 2026</div>
+    <div class="footer-l">Mithali Kamble, Program Manager, Store OS, Submitted May 2026</div>
     <div class="footer-r">People · Growth · Culture</div>
   </div>
 </div>
