@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mithali Kamble · Core Strengths Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black:     #111111;
+    --charcoal:  #2a2a2a;
+    --mid:       #555555;
+    --soft:      #888888;
+    --rule:      #d8d8d4;
+    --bg-card:   #f5f5f3;
+    --bg-page:   #fafaf8;
+    --accent:    #222222;
+    --accent2:   #666666;
+    --tag-border:#bbbbbb;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #e8e8e5;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 32px 16px;
+  }
+
+  @media print {
+    body { background: white; padding: 0; }
+    .page { box-shadow: none; }
+    @page { size: A4; margin: 0; }
+  }
+
+  .page {
+    width: 794px;
+    background: var(--bg-page);
+    box-shadow: 0 24px 80px rgba(0,0,0,0.18);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ── TOP BAR: thin black rule ── */
+  .top-bar { height: 5px; background: var(--black); }
+
+  /* ── HEADER ── */
+  .header {
+    padding: 36px 52px 28px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 20px; align-items: start;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+  .role-label {
+    font-size: 9px; font-weight: 700; letter-spacing: 4px;
+    text-transform: uppercase; color: var(--soft); margin-bottom: 10px;
+  }
+  .name {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px; font-weight: 900; color: var(--black);
+    line-height: 1.0; margin-bottom: 9px;
+    letter-spacing: -1px;
+  }
+  .title {
+    font-size: 13.5px; font-weight: 600; color: var(--charcoal);
+    margin-bottom: 13px; display: flex; align-items: center; gap: 12px;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .title::after { content: ''; flex: 0 0 32px; height: 2px; background: var(--black); border-radius: 2px; }
+  .meta { font-size: 11px; color: var(--soft); display: flex; gap: 18px; flex-wrap: wrap; }
+
+  .fynd-badge { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; padding-top: 6px; }
+  .fynd-logo { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--black); letter-spacing: -0.5px; }
+  .year-badge {
+    font-size: 9px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase;
+    background: var(--black); color: white; padding: 4px 12px; border-radius: 2px;
+  }
+
+  /* ── IMPACT BAND ── */
+  .impact-band {
+    background: var(--black); padding: 22px 52px;
+    display: grid; grid-template-columns: 3px 1fr; gap: 22px; align-items: center;
+  }
+  .impact-line { background: #777; border-radius: 4px; }
+  .impact-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px; color: #f0f0ee; font-weight: 700; line-height: 1.65;
+  }
+  .impact-text em { font-style: normal; color: #bbbbbb; }
+
+  /* ── BODY ── */
+  .body { padding: 30px 52px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px 34px; }
+
+  .sec-label {
+    font-size: 8.5px; font-weight: 700; letter-spacing: 3.5px; text-transform: uppercase;
+    color: var(--soft); margin-bottom: 13px; display: flex; align-items: center; gap: 10px;
+  }
+  .sec-label::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+
+  /* Stats */
+  .stats-row { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+  .stat-box {
+    border: 1.5px solid var(--rule); border-radius: 6px;
+    padding: 14px 10px; text-align: center;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .stat-box:hover { border-color: var(--black); transform: translateY(-2px); }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px; font-weight: 900; color: var(--black);
+    line-height: 1; margin-bottom: 5px;
+  }
+  .stat-lbl { font-size: 9px; font-weight: 500; color: var(--soft); text-transform: uppercase; letter-spacing: 0.3px; }
+
+  /* Strengths */
+  .str-list { list-style: none; }
+  .str-list li { display: grid; grid-template-columns: 22px 1fr; gap: 11px; margin-bottom: 11px; align-items: start; }
+  .s-icon {
+    width: 22px; height: 22px; background: var(--black);
+    border-radius: 4px; display: flex; align-items: center;
+    justify-content: center; flex-shrink: 0; font-size: 11px; margin-top: 1px;
+  }
+  .s-title { font-size: 12px; font-weight: 600; color: var(--black); margin-bottom: 2px; }
+  .s-desc { font-size: 11px; color: var(--mid); line-height: 1.45; }
+  .s-eg {
+    display: inline-block; margin-top: 4px;
+    font-size: 9.5px; font-style: italic; color: var(--charcoal);
+    background: #ebebeb; border-radius: 3px; padding: 2px 7px; border-left: 2px solid var(--charcoal);
+  }
+
+  /* Achievement cards */
+  .ach-card {
+    background: var(--bg-card); border: 1px solid var(--rule);
+    border-radius: 6px; padding: 11px 13px 11px 17px;
+    margin-bottom: 8px; position: relative; overflow: hidden;
+  }
+  .ach-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--black); }
+  .ach-title { font-size: 11.5px; font-weight: 600; color: var(--black); margin-bottom: 3px; }
+  .ach-desc { font-size: 10.5px; color: var(--mid); line-height: 1.45; }
+  .ach-tag {
+    display: inline-block; margin-top: 4px;
+    font-size: 9px; font-weight: 700; letter-spacing: 0.5px;
+    background: var(--black); color: white;
+    padding: 2px 7px; border-radius: 3px;
+  }
+
+  .full-width { grid-column: 1 / -1; }
+
+  /* ── CONNECTIVE LAYER ── */
+  .layer-grid {
+    display: grid;
+    grid-template-columns: 1fr 30px 1.2fr 30px 1fr;
+    gap: 0; align-items: stretch; margin-bottom: 10px;
+  }
+  .layer-card {
+    border: 1.5px solid var(--rule); border-radius: 6px;
+    padding: 13px 13px; background: var(--bg-card);
+  }
+  .layer-card.me {
+    border: 2px solid var(--black); background: var(--black); color: white;
+    position: relative;
+  }
+  .layer-arrow {
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; color: var(--soft); font-weight: 300;
+  }
+  .l-icon { font-size: 16px; margin-bottom: 5px; }
+  .l-role { font-size: 10.5px; font-weight: 700; color: var(--black); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .l-role.white { color: #f0f0ee; }
+  .l-desc { font-size: 10px; color: var(--mid); line-height: 1.45; }
+  .l-desc.white { color: #aaa; }
+  .me-badge {
+    font-size: 8px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+    background: white; color: var(--black); display: inline-block;
+    padding: 2px 7px; border-radius: 2px; margin-bottom: 5px;
+  }
+
+  .also-row {
+    background: #f0f0ee; border: 1px solid var(--rule); border-radius: 6px;
+    padding: 10px 16px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    margin-top: 8px;
+  }
+  .also-lbl { font-size: 8.5px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--soft); white-space: nowrap; }
+  .also-pill {
+    font-size: 10px; font-weight: 500; color: var(--charcoal);
+    background: white; border: 1px solid var(--rule); border-radius: 4px; padding: 3px 10px;
+  }
+
+  /* ── REAL SCENARIO ── */
+  .quote-band {
+    grid-column: 1 / -1; background: var(--bg-card); border: 1px solid var(--rule);
+    border-radius: 6px; padding: 14px 18px;
+    display: grid; grid-template-columns: 3px 1fr; gap: 16px; align-items: center;
+  }
+  .q-line { background: var(--black); border-radius: 4px; align-self: stretch; }
+  .q-text { font-size: 11.5px; color: var(--charcoal); line-height: 1.7; font-style: italic; }
+  .q-text strong { font-style: normal; color: var(--black); font-weight: 700; }
+
+  /* ── AI SECTION ── */
+  .ai-card {
+    grid-column: 1 / -1;
+    background: var(--black); border-radius: 8px; padding: 18px 22px;
+    display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: start;
+  }
+  .ai-left { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .ai-icon-big { font-size: 28px; line-height: 1; }
+  .ai-badge {
+    font-size: 8px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+    border: 1px solid #555; color: #aaa; padding: 2px 8px; border-radius: 2px;
+    white-space: nowrap;
+  }
+  .ai-title { font-size: 12px; font-weight: 700; color: #f0f0ee; margin-bottom: 8px; letter-spacing: 0.5px; }
+  .ai-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 5px 16px; }
+  .ai-list li {
+    font-size: 10.5px; color: #aaa; padding-left: 12px; position: relative; line-height: 1.4;
+  }
+  .ai-list li::before { content: '→'; position: absolute; left: 0; color: #666; font-weight: 700; }
+  .ai-list li strong { color: #e0e0de; font-weight: 600; }
+
+  /* Tags */
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    font-size: 10px; font-weight: 500; padding: 4px 10px;
+    border-radius: 3px; border: 1.5px solid;
+  }
+  .t-b  { color: var(--black);   border-color: var(--black);   background: transparent; }
+  .t-m  { color: var(--charcoal); border-color: var(--rule);    background: var(--bg-card); }
+  .t-s  { color: var(--soft);    border-color: var(--rule);    background: transparent; }
+
+  /* Vision */
+  .vision-text { font-size: 11.5px; color: var(--mid); line-height: 1.75; }
+  .vision-text strong { color: var(--black); font-weight: 600; }
+
+  /* Footer */
+  .footer {
+    padding: 14px 52px; border-top: 1px solid var(--rule);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-l { font-size: 10px; color: var(--soft); }
+  .footer-r { font-size: 9px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--black); }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="top-bar"></div>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div>
+      <div class="name">Mithali Kamble</div>
+      <div class="title">Program Manager — Store OS</div>
+      <div class="meta">
+        <span>📍 Mumbai · Fynd</span>
+        <span>🏢 Store OS &amp; Retail Tech</span>
+        <span>🔗 Solutioning · Delivery · Operations</span>
+      </div>
+    </div>
+    <div class="fynd-badge">
+      <div class="fynd-logo">Fynd</div>
+      <div class="year-badge">May 2026</div>
+    </div>
+  </div>
+
+  <!-- IMPACT BAND -->
+  <div class="impact-band">
+    <div class="impact-line"></div>
+    <div class="impact-text">
+      I independently solution, scope, and deliver — the <em>connective layer between Product thinking, Engineering execution, CSM operations, and store-level reality</em>. I don't wait for direction. I identify the gap, own the problem, and make things ship — end to end, every time.
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="body">
+
+
+    <!-- CORE STRENGTHS -->
+    <div class="section">
+      <div class="sec-label">Core Strengths</div>
+      <ul class="str-list">
+        <li>
+          <div class="s-icon">💡</div>
+          <div>
+            <div class="s-title">Independent Solutioning</div>
+            <div class="s-desc">Identify gaps, define solutions, and write specs without waiting on product — translating store/brand pain into actionable technical scope.</div>
+            <span class="s-eg">↳ Item Level Sales Tagging: scoped end-to-end independently</span>
+          </div>
+        </li>
+        <li>
+          <div class="s-icon">🔧</div>
+          <div>
+            <div class="s-title">Developer Management &amp; Delivery</div>
+            <div class="s-desc">Write clear requirement docs, run sprint check-ins, unblock developers, and hold delivery timelines. I speak both business and technical.</div>
+            <span class="s-eg">↳ PineLabs: 2 dev teams (internal + external vendor)</span>
+          </div>
+        </li>
+        <li>
+          <div class="s-icon">📋</div>
+          <div>
+            <div class="s-title">CR &amp; Release Management</div>
+            <div class="s-desc">Structure every change request with impact analysis, rollout plan, comms, and stakeholder sign-off — no surprise deployments, full audit trail.</div>
+          </div>
+        </li>
+        <li>
+          <div class="s-icon">⚖️</div>
+          <div>
+            <div class="s-title">Priority &amp; Trade-off Decisions</div>
+            <div class="s-desc">Balance competing demands across brands, CSMs, and roadmap. Know when to push, when to park, and how to explain both.</div>
+          </div>
+        </li>
+        <li>
+          <div class="s-icon">🏪</div>
+          <div>
+            <div class="s-title">Direct Store Problem Solver</div>
+            <div class="s-desc">Attend brand queries and store escalations directly — no routing, no delay. Own the issue from first contact through resolution, coordinating across store teams in real time.</div>
+            <span class="s-eg">↳ Pant Project: directly handled brand queries &amp; store team escalations end-to-end</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- KEY FEATURE DELIVERIES -->
+    <div class="section">
+      <div class="sec-label">Key Feature Deliveries</div>
+
+      <div class="ach-card">
+        <div class="ach-title">🏷️ Item Level Sales Employee Tagging</div>
+        <div class="ach-desc">Independently solutioned &amp; delivered item-level attribution of sales to store employees — enabling commission tracking and performance management for brands like <strong>Knya Med</strong>. Drove spec, dev, UAT, and rollout.</div>
+        <span class="ach-tag">Solutioning → Live</span>
+      </div>
+
+      <div class="ach-card">
+        <div class="ach-title">🤝 PineLabs App-to-App Integration</div>
+        <div class="ach-desc">Led Fynd POS ↔ PineLabs terminal integration — the key challenge was coordinating two engineering teams across organisational boundaries (internal Fynd devs + external PineLabs team), aligning on API contracts, managing timelines across both sides, and running store-level pilots before full rollout.</div>
+        <span class="ach-tag">Cross-org Delivery</span>
+      </div>
+
+      <div class="ach-card">
+        <div class="ach-title">💰 Advance Cash Management</div>
+        <div class="ach-desc">Delivered cash advance &amp; reconciliation module — eliminating manual tracking errors and enabling real-time cash accountability across stores for brands like <strong>Pant Project</strong>.</div>
+        <span class="ach-tag">Finance + Ops</span>
+      </div>
+
+      <div class="ach-card">
+        <div class="ach-title">👗 Clienteling &amp; 📦 Stock Audit</div>
+        <div class="ach-desc"><strong>Clienteling:</strong> Customer purchase history &amp; preference access for personalised in-store selling — delivered for global brand <strong>Hugo Boss</strong>. <strong>Stock Audit:</strong> Guided audit flow reducing inventory discrepancy resolution time significantly, rolled out for <strong>Knya Med</strong>.</div>
+        <span class="ach-tag">Retail Intelligence</span>
+      </div>
+    </div>
+
+    <!-- CONNECTIVE LAYER -->
+    <div class="full-width">
+      <div class="sec-label">The Connective Layer — Where I Operate</div>
+
+      <div class="layer-grid">
+        <div class="layer-card">
+          <div class="l-icon">📦</div>
+          <div class="l-role">Product</div>
+          <div class="l-desc">I don't wait for product specs — I independently solution gaps, write briefs, and feed roadmap inputs based on brand &amp; store reality.</div>
+        </div>
+        <div class="layer-arrow">⟷</div>
+        <div class="layer-card me">
+          <div class="me-badge">Program Manager</div>
+          <div class="l-icon">🔗</div>
+          <div class="l-role white">Mithali Kamble</div>
+          <div class="l-desc white">Solutioning → Developer Management → CR &amp; Delivery → CSM Enablement → Store Escalations → Go-live Ownership.</div>
+        </div>
+        <div class="layer-arrow">⟷</div>
+        <div class="layer-card">
+          <div class="l-icon">👩‍💻</div>
+          <div class="l-role">Engineering</div>
+          <div class="l-desc">Write clear technical briefs, run sprint reviews, unblock devs, review PRs for requirement accuracy, and own UAT sign-off.</div>
+        </div>
+      </div>
+
+      <div class="also-row">
+        <div class="also-lbl">Also spanning →</div>
+        <span class="also-pill">🛍️ CSM — Query resolution &amp; brand onboarding</span>
+        <span class="also-pill">🏪 Stores — Direct escalations (Knya Med, Pant Project)</span>
+        <span class="also-pill">📊 Leadership — Priority &amp; roadmap trade-offs</span>
+        <span class="also-pill">📋 CR &amp; Release — End-to-end ownership</span>
+      </div>
+    </div>
+
+    <!-- REAL SCENARIO -->
+    <div class="quote-band">
+      <div class="q-line"></div>
+      <div class="q-text">
+        During the <strong>Footlocker</strong> release, queries and doubts started coming in — products were getting disabled from the platform mid-flow. I didn't wait for the respective team to come and investigate. I jumped in, diagnosed the issue through Store OS configuration and setup, got on a call with the brand, the dev team, and the product team simultaneously — and resolved it then and there. <strong>This is the work I show up to do every day.</strong>
+      </div>
+    </div>
+
+    <!-- AI / AUTOMATION -->
+    <div class="ai-card">
+      <div class="ai-left">
+        <div class="ai-icon-big">⚡</div>
+        <div class="ai-badge">AI · Claude</div>
+      </div>
+      <div>
+        <div class="ai-title">Using AI to Work Smarter — My Daily Automation Stack</div>
+        <ul class="ai-list">
+          <li><strong>CR Drafts:</strong> Use Claude to generate structured CR documents from raw notes — cutting draft time from 45 min to under 10 min</li>
+          <li><strong>Requirement Docs:</strong> Prompt Claude with store/brand problem statements to generate first-cut BRDs and edge case lists</li>
+          <li><strong>Sprint Summaries:</strong> Auto-summarise dev standup notes into stakeholder-ready status updates using Claude</li>
+          <li><strong>Query Triage:</strong> Use Claude to draft CSM-facing FAQs and resolution playbooks from past escalation threads</li>
+          <li><strong>UAT Checklists:</strong> Generate feature-specific test cases by feeding Claude the spec doc — reducing UAT prep time significantly</li>
+          <li><strong>Meeting Prep:</strong> Summarise brand onboarding histories and open items before calls using Claude for fast context loading</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- HOW I SHOW UP -->
+    <div class="full-width">
+      <div class="sec-label">Skills &amp; How I Show Up</div>
+      <div class="tags">
+        <span class="tag t-b" style="font-weight:700; letter-spacing:0.3px;">Product Thinking</span>
+        <span class="tag t-b" style="font-weight:700; letter-spacing:0.3px;">AI-assisted Automation</span>
+        <span class="tag t-b">Independent Solutioning</span>
+        <span class="tag t-b">Developer Coordination</span>
+        <span class="tag t-b">CR &amp; Release Management</span>
+        <span class="tag t-b">Feature Delivery</span>
+        <span class="tag t-b">Sprint Planning</span>
+        <span class="tag t-m">CSM Enablement</span>
+        <span class="tag t-m">Brand Onboarding</span>
+        <span class="tag t-m">Store Escalations</span>
+        <span class="tag t-m">Stakeholder Management</span>
+        <span class="tag t-m">UAT Coordination</span>
+        <span class="tag t-m">Requirement Documentation</span>
+        <span class="tag t-m">Cross-team Communication</span>
+        <span class="tag t-s">Risk &amp; Rollback Planning</span>
+        <span class="tag t-s">Priority Trade-offs</span>
+        <span class="tag t-s">API / Integration Oversight</span>
+        <span class="tag t-s">Retail Domain Knowledge</span>
+        <span class="tag t-s">Process Improvement</span>
+        <span class="tag t-s">Calm Under Pressure</span>
+      </div>
+    </div>
+
+    <!-- VISION -->
+    <div class="full-width">
+      <div class="sec-label">Where I'm Headed</div>
+      <p class="vision-text">
+        I want to build a <strong>best-in-class program delivery culture at Fynd</strong> — where every feature ships on time, every brand goes live without chaos, and every developer I work with knows exactly what to build and why. I've already shown I can solution independently, manage complex deliveries, own escalations, and use AI to multiply my output. My goal now is to <strong>scale that impact further</strong> — taking on larger programs, deeper cross-functional ownership, and building the systems that make delivery predictable across Store OS.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-l">Mithali Kamble · Program Manager, Store OS · Submitted May 2026</div>
+    <div class="footer-r">People · Growth · Culture</div>
+  </div>
+</div>
+</body>
+</html>
